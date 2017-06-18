@@ -1,0 +1,49 @@
+swagger: '2.0'
+info:
+  description: >-
+    This is a simple ping rest service
+  version: 0.0.1
+  title: testping
+  contact:
+    email: onokonem@gmail.com
+  license:
+    name: MIT
+host: localhost:8080
+basePath: /testping
+tags:
+  - name: ping
+    description: OMG NOES IT PINGS!!11111
+schemes:
+  - http
+paths:
+  /ping:
+    get:
+      tags:
+        - ping
+      summary: does it ping yet?
+      description: YAML-based definitions suck
+      operationId: ping
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: login
+          description: Login
+          required: true
+          type: string
+        - in: query
+          name: password
+          description: Password
+          required: true
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: string
+        '403':
+          description: Access denied
+        '400':
+          description: Invalid status value
+        '500':
+          description: Operation error
